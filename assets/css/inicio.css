@@ -1,0 +1,183 @@
+/* Estilos generales */
+body {
+    background-color: #fff;
+    font-family: 'Arial', sans-serif;
+}
+
+.navbar {
+    transition: background-color 0.5s ease;
+}
+
+.transparent-navbar {
+    background-color: transparent;
+}
+
+.navbar-brand {
+    color: #fff !important;
+}
+
+.navbar-nav .nav-link {
+    color: #fff !important;
+}
+
+.navbar-brand,
+.nav-link {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ajusta los valores según lo que necesites */
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.cut-section {
+    position: absolute;
+    top: 85%;
+    left: -20%;
+    width: 140%;
+    background-color: white;
+    padding: 40px 0;
+    clip-path: polygon(0 0, 100% 50%, 100% 100%, 0 100%);
+    z-index: 1;
+}
+
+.cut-section h2 {
+    margin: 0;
+    color: #333;
+}
+
+/* Productos Section */
+.products-background {
+    position: relative;
+    background-color: white;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding: 100px 0;
+    z-index: 0;
+}
+
+.products-section {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.product-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Título visible por defecto */
+.navbar-brand {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Título oculto al desplazar */
+.navbar-brand.hidden {
+    opacity: 0;
+}
+
+
+/* Efecto de zoom al pasar el mouse */
+.product-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 12px rgba(0, 0, 0, 0.15);
+}
+
+.product-item img {
+    max-width: 40%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.product-content {
+    flex: 1;
+    padding: 0 20px;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.product-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.product-content h3 {
+    color: #007bff;
+}
+
+/* Alternar posición de los productos */
+.product-item:nth-child(even) {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+    .product-item {
+        flex-direction: column !important; /* Asegurarse de que todos los productos sean columnas en pantallas pequeñas */
+    }
+
+    .product-item img {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .product-content {
+        text-align: center;
+    }
+}
+
+/* Estilo para el botón del menú desplegable (hamburger) en pantallas pequeñas */
+.navbar-toggler {
+    background-color: white; /* Cambia el fondo del botón a blanco */
+    border-color: white; /* Cambia el borde del botón a blanco */
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    /* Cambia las tres barras del menú a blanco */
+}   
+
+/* Footer */
+.footer {
+    background-color: white;
+    color: #333;
+    padding: 10px 0;
+    text-align: center;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+}
